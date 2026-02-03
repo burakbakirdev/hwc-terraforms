@@ -62,13 +62,21 @@ terraform destroy
 | Variable | Description | Required |
 |----------|-------------|----------|
 | `region` | Huawei Cloud region | Yes |
+| `access_key` | Huawei Cloud access key | Yes |
+| `secret_key` | Huawei Cloud secret key | Yes |
 | `enterprise_project_id` | Enterprise project ID | No |
 | `project_name` | Project name for resource naming | Yes |
 | `environment` | Environment (dev, staging, prod) | Yes |
 | `vpc_cidr` | VPC CIDR block | Yes |
 | `subnets` | List of subnets | Yes |
 | `create_eip` | Create Elastic IP | Yes |
+| `eip_bandwidth_size` | EIP bandwidth (Mbit/s) | Yes |
+| `eip_bandwidth_share_type` | Bandwidth type (PER or WHOLE) | Yes |
+| `remote_ip` | Allowed source IP for SSH access | Yes |
+| `security_group_rules` | Security group rules | Yes |
 | `create_nat_gateway` | Create NAT Gateway | Yes |
+| `nat_gateway_spec` | NAT spec (1-4) | Yes |
+| `tags` | Resource tags | Yes |
 
 ## Outputs
 

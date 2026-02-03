@@ -7,6 +7,8 @@ Huawei Cloud altyapısı için tekrar kullanılabilir Terraform konfigürasyonla
 | Modül | Açıklama |
 |-------|----------|
 | [common_network](./common_network/) | VPC, Subnet, Security Group, EIP, NAT Gateway |
+| [common_ecs_rds](./common_ecs_rds/) | ECS Instance, RDS Database |
+| [common_cce](./common_cce/) | CCE Cluster, Node Pool |
 
 ## Kullanım
 

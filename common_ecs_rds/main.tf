@@ -56,42 +56,56 @@ resource "huaweicloud_networking_secgroup_rule" "egress" {
   remote_ip_prefix  = "0.0.0.0/0"
 }
 
-# EIP
-resource "huaweicloud_vpc_eip" "main" {
-  count = var.create_eip ? 1 : 0
-
-  publicip {
-    type = "5_bgp"
-  }
-
-  bandwidth {
-    name        = "eip-${local.name_prefix}"
-    size        = var.eip_bandwidth_size
-    share_type  = var.eip_bandwidth_share_type
-    charge_mode = "traffic"
-  }
-
-  enterprise_project_id = var.enterprise_project_id
-  tags                  = local.common_tags
+# Image Data
+data "huaweicloud_images_image" "ecs" {
+  name        = var.ecs_image_name
+  visibility  = "public"
+  most_recent = true
 }
 
-# NAT Gateway
-resource "huaweicloud_nat_gateway" "main" {
-  count = var.create_nat_gateway ? 1 : 0
+# ECS Instance
+resource "huaweicloud_compute_instance" "main" {
+  name               = "ecs-${local.name_prefix}-${var.ecs_name}"
+  flavor_id          = var.ecs_flavor
+  image_id           = data.huaweicloud_images_image.ecs.id
+  security_group_ids = [huaweicloud_networking_secgroup.main.id]
+  availability_zone  = var.subnets[0].availability_zone
+  admin_pass         = var.ecs_admin_pass
 
-  name                  = "nat-${local.name_prefix}"
-  description           = "NAT Gateway for ${var.project_name} ${var.environment}"
-  spec                  = var.nat_gateway_spec
-  vpc_id                = huaweicloud_vpc.main.id
-  subnet_id             = values(huaweicloud_vpc_subnet.subnets)[0].id
-  enterprise_project_id = var.enterprise_project_id
-  tags                  = local.common_tags
+  system_disk_type = var.ecs_system_disk_type
+  system_disk_size = var.ecs_system_disk_size
+
+  network {
+    uuid = values(huaweicloud_vpc_subnet.subnets)[0].id
+  }
+
+  tags = local.common_tags
 }
 
-resource "huaweicloud_nat_snat_rule" "main" {
-  count = var.create_nat_gateway && var.create_eip ? 1 : 0
+# RDS Instance
+resource "huaweicloud_rds_instance" "main" {
+  name              = "rds-${local.name_prefix}-${var.rds_name}"
+  flavor            = var.rds_flavor
+  vpc_id            = huaweicloud_vpc.main.id
+  subnet_id         = values(huaweicloud_vpc_subnet.subnets)[0].id
+  security_group_id = huaweicloud_networking_secgroup.main.id
+  availability_zone = [var.subnets[0].availability_zone]
 
-  nat_gateway_id = huaweicloud_nat_gateway.main[0].id
-  floating_ip_id = huaweicloud_vpc_eip.main[0].id
-  subnet_id      = values(huaweicloud_vpc_subnet.subnets)[0].id
+  db {
+    type     = var.rds_engine
+    version  = var.rds_engine_version
+    password = var.rds_password
+  }
+
+  volume {
+    type = var.rds_volume_type
+    size = var.rds_volume_size
+  }
+
+  backup_strategy {
+    start_time = var.rds_backup_start_time
+    keep_days  = var.rds_backup_keep_days
+  }
+
+  tags = local.common_tags
 }

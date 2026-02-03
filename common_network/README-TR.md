@@ -61,14 +61,22 @@ terraform destroy
 
 | Değişken | Açıklama | Zorunlu |
 |----------|----------|---------|
-| `region` | Huawei Cloud region | Evet |
-| `enterprise_project_id` | Enterprise project ID | Hayır |
+| `region` | Huawei Cloud bölgesi | Evet |
+| `access_key` | Huawei Cloud erişim anahtarı | Evet |
+| `secret_key` | Huawei Cloud gizli anahtarı | Evet |
+| `enterprise_project_id` | Kurumsal proje kimliği | Hayır |
 | `project_name` | Kaynak isimlendirmesi için proje adı | Evet |
 | `environment` | Ortam (dev, staging, prod) | Evet |
 | `vpc_cidr` | VPC CIDR bloğu | Evet |
 | `subnets` | Subnet listesi | Evet |
-| `create_eip` | Elastic IP oluştur | Evet |
-| `create_nat_gateway` | NAT Gateway oluştur | Evet |
+| `create_eip` | EIP oluşturulsun mu | Evet |
+| `eip_bandwidth_size` | EIP bant genişliği (Mbit/s) | Evet |
+| `eip_bandwidth_share_type` | Bant genişliği tipi (PER veya WHOLE) | Evet |
+| `remote_ip` | SSH erişimi için izin verilen IP | Evet |
+| `security_group_rules` | Güvenlik grubu kuralları | Evet |
+| `create_nat_gateway` | NAT Gateway oluşturulsun mu | Evet |
+| `nat_gateway_spec` | NAT özellikleri (1-4) | Evet |
+| `tags` | Kaynak etiketleri | Evet |
 
 ## Output'lar
 

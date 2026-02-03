@@ -7,6 +7,8 @@ Reusable Terraform configurations for common Huawei Cloud infrastructure pattern
 | Module | Description |
 |--------|-------------|
 | [common_network](./common_network/) | VPC, Subnets, Security Groups, EIP, NAT Gateway |
+| [common_ecs_rds](./common_ecs_rds/) | ECS Instance, RDS Database |
+| [common_cce](./common_cce/) | CCE Cluster, Node Pool |
 
 ## Usage
 
