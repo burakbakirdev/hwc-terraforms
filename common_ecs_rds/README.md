@@ -90,8 +90,10 @@ terraform destroy
 | `subnet_ids` | Map of subnet names to IDs |
 | `security_group_id` | Security group ID |
 | `ecs_id` | ECS instance ID |
+| `ecs_name` | ECS instance name |
 | `ecs_private_ip` | ECS private IP |
 | `rds_id` | RDS instance ID |
+| `rds_name` | RDS instance name |
 | `rds_private_ips` | RDS private IPs |
 
 ## Security Note

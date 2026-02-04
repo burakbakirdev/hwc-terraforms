@@ -83,9 +83,13 @@ terraform destroy
 | Output | Açıklama |
 |--------|----------|
 | `vpc_id` | VPC ID |
-| `subnet_ids` | Subnet isimlerinden ID'lere map |
-| `security_group_id` | Security group ID |
-| `eip_address` | EIP public adresi |
+| `vpc_cidr` | VPC CIDR |
+| `subnet_ids` | Subnet isimleri ve ID'leri haritası |
+| `subnet_cidrs` | Subnet isimleri ve CIDR'ları haritası |
+| `security_group_id` | Güvenlik grubu ID |
+| `security_group_name` | Güvenlik grubu adı |
+| `eip_id` | EIP ID |
+| `eip_address` | EIP genel adresi |
 | `nat_gateway_id` | NAT Gateway ID |
 
 ## Güvenlik Notu

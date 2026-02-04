@@ -26,7 +26,7 @@ VPC, Subnet, Security Group, ECS instance ve RDS veritabanı içeren komple alty
 export HW_ACCESS_KEY="your-access-key"
 export HW_SECRET_KEY="your-secret-key"
 export HW_REGION_NAME="tr-west-1"
-```
+``` 
 
 ### 2. Konfigürasyon
 
@@ -87,12 +87,14 @@ terraform destroy
 | Output | Açıklama |
 |--------|----------|
 | `vpc_id` | VPC ID |
-| `subnet_ids` | Subnet isimlerinden ID'lere map |
-| `security_group_id` | Security group ID |
+| `subnet_ids` | Subnet isimleri ve ID'leri haritası |
+| `security_group_id` | Güvenlik grubu ID |
 | `ecs_id` | ECS instance ID |
-| `ecs_private_ip` | ECS private IP |
+| `ecs_name` | ECS instance adı |
+| `ecs_private_ip` | ECS özel IP |
 | `rds_id` | RDS instance ID |
-| `rds_private_ips` | RDS private IP'leri |
+| `rds_name` | RDS instance adı |
+| `rds_private_ips` | RDS özel IP'leri |
 
 ## Güvenlik Notu
 

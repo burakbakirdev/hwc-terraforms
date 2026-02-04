@@ -101,9 +101,15 @@ terraform destroy
 | `vpc_id` | VPC ID |
 | `node_subnet_id` | Node subnet ID |
 | `pod_subnet_ids` | Pod subnet IDs |
+| `pod_subnet_ipv4_ids` | Pod subnet IPv4 IDs (for ENI) |
 | `cluster_id` | CCE cluster ID |
+| `cluster_name` | CCE cluster name |
+| `cluster_status` | CCE cluster status |
 | `kube_config_raw` | Kubeconfig content (sensitive) |
+| `cluster_internal_endpoint` | Cluster internal API endpoint |
 | `nodepool_id` | Node pool ID |
+| `nodepool_name` | Node pool name |
+| `nodepool_status` | Node pool status |
 
 ## Security Note
 

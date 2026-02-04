@@ -83,8 +83,12 @@ terraform destroy
 | Output | Description |
 |--------|-------------|
 | `vpc_id` | VPC ID |
+| `vpc_cidr` | VPC CIDR |
 | `subnet_ids` | Map of subnet names to IDs |
+| `subnet_cidrs` | Map of subnet names to CIDRs |
 | `security_group_id` | Security group ID |
+| `security_group_name` | Security group name |
+| `eip_id` | EIP ID |
 | `eip_address` | EIP public address |
 | `nat_gateway_id` | NAT Gateway ID |
 
