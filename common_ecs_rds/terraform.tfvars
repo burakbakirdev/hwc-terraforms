@@ -80,7 +80,7 @@ ecs_flavor           = "ac8.xlarge.2"
 ecs_image_name       = "Ubuntu 24.04 server 64bit"
 ecs_system_disk_type = "SSD"
 ecs_system_disk_size = 40
-ecs_admin_pass       = "YourSecurePassword123!"
+ecs_admin_pass       = "<YOUR_ECS_PASSWORD>"
 
 # RDS Configuration
 rds_name              = "mysql"
@@ -89,7 +89,7 @@ rds_engine            = "MySQL"
 rds_engine_version    = "8.0"
 rds_volume_type       = "CLOUDSSD"
 rds_volume_size       = 100
-rds_password          = "YourSecureDBPassword123!"
+rds_password          = "<YOUR_RDS_PASSWORD>"
 rds_backup_start_time = "02:00-03:00"
 rds_backup_keep_days  = 7
 

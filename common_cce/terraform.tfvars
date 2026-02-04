@@ -62,7 +62,7 @@ nodepool_root_volume_size   = 50
 nodepool_data_volume_type   = "GPSSD"
 nodepool_data_volume_size   = 100
 nodepool_key_pair           = ""
-nodepool_password           = "YourSecureNodePassword123!"
+nodepool_password           = "<YOUR_NODE_PASSWORD>"
 
 # Tags
 tags = {
